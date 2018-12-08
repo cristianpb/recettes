@@ -1,0 +1,59 @@
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Recettes
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle">
+      Categories
+    </h2>
+    <div class="tags has-addons" >
+      <div *ngFor="let category of categories">
+        <a class="tag" (click)="changeCategory(category._id)">{{ category._id }}</a>
+        <span class="tag is-primary" (click)="changeCategory(category._id)">{{ category.distinctCount }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-3" *ngFor="let recette of recettes">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="{{ recette.image }}" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4">{{ recette.name }}</p>
+                <p class="subtitle is-6">{{ recette.category }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <nav class="pagination is-rounded is-centered" role="navigation" aria-label="pagination">
+      <a class="pagination-previous" [attr.disabled]="currentPage == 0 ? '': null" (click)="previousPage()" >Previous</a>
+      <a (click)="nextPage()" class="pagination-next" [attr.disabled]="recettes.length == 0 ? '': null"  >Next page</a>
+      <ul class="pagination-list">
+        <li><a class="pagination-link" aria-current="page">{{ currentPage }}</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
