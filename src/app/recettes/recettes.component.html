@@ -35,8 +35,8 @@
           <div class="card-content">
             <div class="media">
               <div class="media-content">
-                <p class="title is-4">{{ recette.name }}</p>
-                <p class="subtitle is-6">{{ recette.category }}</p>
+                <a class="title is-4" [routerLink]="['/recette', recette.code]">{{ recette.name }}</a>
+                <a class="subtitle is-6" [routerLink]="['/recette', recette.code]">{{ recette.category }}</a>
               </div>
             </div>
           </div>

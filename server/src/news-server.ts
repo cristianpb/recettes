@@ -92,6 +92,13 @@ export class NewsServer {
       }
     });
 
+    this.app.get('/api/recette/:id', async (req: Request, res: Response) => {
+      console.log(req.params.id);
+      const docs = await this.db.collection('documents')
+        .findOne({'_id': `aroma_Recette_${req.params.id}`});
+      res.json({'data': docs});
+    });
+
   }
 
   private listen(): void {

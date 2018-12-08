@@ -21,4 +21,8 @@ export class RecettesService {
   getCategories() {
     return this.http.get<RecetteReponse>(`${environment.api}/categories`);
   }
+
+  getRecette(id) {
+    return this.http.get<RecetteReponse>(`${environment.api}/recette/${id}`);
+  }
 }
