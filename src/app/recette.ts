@@ -7,13 +7,15 @@ export class Recette {
   index: string;
   price: string;
   code: number;
-  instruction: string;
+  instructions: string[];
+  ingredients_list: string[][];
   total_votes: number;
-  ingredients: string;
+  ingredients: string[];
   compact_name: string;
   doctype: string;
   name: string;
   average_rating: number;
   image: string;
   props: any;
+  reco: string[];
 }
