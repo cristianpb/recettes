@@ -23,3 +23,56 @@
     </div>
   </div>
 </section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title">Preparation
+    </h2>
+    <div class="content" *ngIf="recette.instructions">
+      <p *ngFor="let item of recette.instructions">
+        {{ item }}
+      </p>
+    </div>
+    <h2 class="title">Ingredients
+    </h2>
+    <table class="table is-hoverable">
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Ingredient</th>
+          <th>Percent</th>
+          <th>Grammes</th>
+          <th>Volume</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ligne of recette.ingredients">
+          <td>{{ ligne.phase }}</td>
+          <td>{{ ligne.ingredients }}</td>
+          <td>{{ ligne.percent }}</td>
+          <td>{{ ligne.grammes }}</td>
+          <td>{{ ligne.volume }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 class="title">Recettes similaires 
+    </h2>
+    <div class="columns is-multiline">
+      <div *ngFor="let item of recette.reco; let i = index" class="column is-3">
+        <div class="card">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <a class="title is-4" [routerLink]="['/recette', item.split('_')[2]]">{{ recette.reco_name[i] }}</a>
+                <div class="tags">
+                  <span *ngFor="let tag of recette.ingredients_list[i]" class="tag">{{ tag }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
